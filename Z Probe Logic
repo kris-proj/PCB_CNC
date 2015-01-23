@@ -4,3 +4,18 @@
 3 - Define how many peices to divide the grid into
       this may end up being irrationation, so floor value
 4 - Determine the x and y "grid marks" (i.e. what points on x and y axis define the grid lines)
+      use the grid size and divide by how many pieces\
+      this may lead to irrational values; floor the entire array (only integer steps)
+
+This yields an array of x and y values to probe (probe all combinations of x and y to define a full grid)
+
+5 - Create Z of size N x M where N is the size of x value array and M is the size of y value array
+6 - Run through the algorithm:
+
+      For all values of x and for all values of y:
+            Send CNC to position x,y
+                  Send position command and wait for OK
+            Send CNC command to probe at position x,y
+                  Send probe command and wait for Z height
+            Store Z height data in Z matrix
+            
